@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Shopping.Sales.Storage.Abstractions;
+﻿using Microsoft.EntityFrameworkCore;
 using Shopping.Sales.Storage.EntityFramework.Configurations;
-using Shopping.Storage.Abstractions;
 
 namespace Shopping.Sales.Storage.EntityFramework
 {
@@ -22,21 +19,4 @@ namespace Shopping.Sales.Storage.EntityFramework
         public DbSet<OrderItem> OrderItems { get; init; }
         public DbSet<Product> Products { get; init; }
     }
-    
-    internal class SalesContext : IdentityDbContext, ISalesContext
-    {
-        public DbSet<Order> Orders { get; init; }
-        public DbSet<OrderItem> OrderItems { get; init; }
-        public DbSet<Product> Products { get; init; }
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new OrderConfiguration());
-            modelBuilder.ApplyConfiguration(new OrderItemConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductConfiguration());
-            base.OnModelCreating(modelBuilder);
-        }
-    }
-    
-    
 }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Shopping.Storage.Abstractions;
 
 namespace Shopping.Sales.Storage.EntityFramework.Configurations
 {

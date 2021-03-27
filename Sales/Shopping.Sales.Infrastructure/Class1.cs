@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Shopping.Sales.Infrastructure
+﻿namespace Shopping.Sales.Infrastructure
 {
     public class Class1
     {
