@@ -1,7 +1,7 @@
 ﻿using System;
 using Domain.Foundation.Events;
-using Domain.Foundation.EventSourcing;
 using Domain.Foundation.Storage;
+using Domain.Foundation.Tactical;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Domain.Foundation.EventStore.DependencyInjection

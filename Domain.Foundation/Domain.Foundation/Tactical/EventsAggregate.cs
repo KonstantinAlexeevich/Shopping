@@ -2,30 +2,29 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Domain.Foundation.Events;
-using Domain.Foundation.EventSourcing;
 
 namespace Domain.Foundation.Tactical
 {
     public abstract class EventsAggregate<TIdentity, TEvent> : IEventsAggregate<TIdentity, TEvent> 
         where TEvent : IEvent
     {
-        protected void Apply(TEvent evt) {
+        protected void Emit(TEvent evt) {
             _changes.Add(evt);
-            When(evt);
+            Apply(evt);
         }
 
         public Task Restore(IEnumerable<TEvent> events)
         {
             foreach (var @event in events) {
                 _existing.Add(@event);
-                When(@event);
+                Apply(@event);
                 Version++;
             }
             
             return Task.CompletedTask;
         }
 
-        protected abstract void When(TEvent evt);
+        protected abstract void Apply(TEvent evt);
 
         public IReadOnlyCollection<TEvent> Changes => _changes.AsReadOnly();
         protected IReadOnlyCollection<TEvent> Existing => _existing.AsReadOnly();

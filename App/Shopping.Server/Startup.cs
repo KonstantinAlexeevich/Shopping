@@ -53,7 +53,7 @@ namespace Shopping.Server
 
             services.AddDomainFoundation(x => x.AddAssemblies(typeof(Order).Assembly));
             services.AddEventNames(x => { x.NameSalesEvents(); });
-            services.StoreAggregate<Order, string, OrderEvents.IOrderEvent>();
+            services.StoreAggregate<Order, string, IOrderEvent>();
         }
 
         static EventStoreClient ConfigureEventStore(string connectionString, ILoggerFactory loggerFactory)

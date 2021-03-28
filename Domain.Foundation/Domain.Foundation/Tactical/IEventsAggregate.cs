@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Domain.Foundation.Events;
-using Domain.Foundation.Tactical;
 
-namespace Domain.Foundation.EventSourcing
+namespace Domain.Foundation.Tactical
 {
     public interface IEventsAggregate<TIdentity, TEvent> : 
         IAggregate<TIdentity>, 

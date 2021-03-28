@@ -7,6 +7,7 @@
     <ItemGroup>
       <ProjectReference Include="..\..\Domain.Foundation\Domain.Foundation\Domain.Foundation.csproj" />
       <ProjectReference Include="..\Shopping.Sales.Api\Shopping.Sales.Api.csproj" />
+      <ProjectReference Include="..\..\Domain.Foundation\Domain.Foundation.SourceGenerator\Domain.Foundation.SourceGenerator.csproj" OutputItemType="Analyzer" />
     </ItemGroup>
 
 </Project>

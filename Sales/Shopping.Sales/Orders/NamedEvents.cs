@@ -7,7 +7,7 @@ namespace Shopping.Sales
     public static partial class NamedEvents
     {
         static void NameOrderEvents(this IEventMetadataMapper mapper) => mapper
-            .Add<OrderEvents.OrderItemAdded>("OrderItemAdded")
-            .Add<OrderEvents.OrderItemRemoved>("OrderItemRemoved");
+            .Add<IOrderEvent.OrderItemAdded>("OrderItemAdded")
+            .Add<IOrderEvent.OrderItemRemoved>("OrderItemRemoved");
     }
 }

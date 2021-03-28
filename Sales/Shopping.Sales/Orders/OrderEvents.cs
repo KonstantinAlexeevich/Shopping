@@ -1,13 +1,12 @@
-﻿using Domain.Foundation.Events;
+﻿using Domain.Foundation;
+using Domain.Foundation.Events;
 
 namespace Shopping.Sales.Orders
 {
-    public static class OrderEvents
+    [AutoApplyInterface]
+    public interface IOrderEvent: IEvent
     {
-        public interface IOrderEvent : IEvent
-        {
-            public string OrderId { get; init; }
-        }
+        public string OrderId { get; init; }
         
         public class OrderItemAdded: EventBase, IOrderEvent
         {
@@ -21,6 +20,5 @@ namespace Shopping.Sales.Orders
             public string OrderId { get; init; }
             public long ProductId { get; init; }
         }
-        
     }
 }

@@ -4,8 +4,8 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Domain.Foundation.Core;
 using Domain.Foundation.Events;
-using Domain.Foundation.EventSourcing;
 using Domain.Foundation.Storage;
+using Domain.Foundation.Tactical;
 using EventStore.Client;
 
 namespace Domain.Foundation.EventStore

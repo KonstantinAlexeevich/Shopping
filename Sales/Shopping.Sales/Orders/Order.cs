@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Domain.Foundation.Tactical;
-using static Shopping.Sales.Orders.OrderEvents;
+using static Shopping.Sales.Orders.IOrderEvent;
 
 namespace Shopping.Sales.Orders
 {
-    public class Order : EventsAggregate<string, IOrderEvent>
+    public class Order : EventsAggregate<string, IOrderEvent>, IApplyOrderEvent
     {
         private readonly string _orderId;
         private readonly List<OrderItem> _orderItems = new List<OrderItem>();
@@ -14,12 +14,12 @@ namespace Shopping.Sales.Orders
         {
             _orderId = orderId ?? Guid.NewGuid().ToString();
         }
-        
+
         public override string GetId() => _orderId;
 
         public void AddItem(OrderItem orderItem)
         {
-            Apply(new OrderItemAdded
+            Emit(new OrderItemAdded
             {
                 OrderId = _orderId,
                 ProductId = orderItem.ProductId,
@@ -27,26 +27,36 @@ namespace Shopping.Sales.Orders
             });
         }
 
-        protected override void When(IOrderEvent evt)
+        protected override void Apply(IOrderEvent evt)
         {
             switch (evt)
             {
                 case OrderItemAdded x:
-                    
+
                     _orderItems.Add(new OrderItem()
                     {
                         ProductId = x.ProductId,
                         Count = x.Count
                     });
-                    
+
                     break;
-                
+
                 case OrderItemRemoved orderItemRemoved:
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(evt));
             }
+        }
+
+        void IApply<OrderItemAdded>.Apply(OrderItemAdded @event)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IApply<OrderItemRemoved>.Apply(OrderItemRemoved @event)
+        {
+            throw new NotImplementedException();
         }
     }
 }
