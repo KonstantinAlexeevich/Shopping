@@ -16,7 +16,7 @@ namespace Domain.Foundation.EventStore.DependencyInjection
             return serviceCollection;
         }
 
-        public static IServiceCollection StoreAggregate<TAggregate, TIdentity, TEvent>(this IServiceCollection serviceCollection) 
+        public static IServiceCollection StoreEventsAggregate<TAggregate, TIdentity, TEvent>(this IServiceCollection serviceCollection) 
             where TAggregate : IEventsAggregate<TIdentity, TEvent> where TEvent : IEvent
         {
             serviceCollection.AddScoped<IAggregateStore<TAggregate, TIdentity>, EventsAggregateStore<TAggregate, TIdentity, TEvent>>();

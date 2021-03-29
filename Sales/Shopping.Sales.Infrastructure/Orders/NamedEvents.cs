@@ -2,12 +2,12 @@
 using Shopping.Sales.Orders;
 
 // ReSharper disable once CheckNamespace
-namespace Shopping.Sales
+namespace Shopping.Sales.Infrastructure
 {
     public static partial class NamedEvents
     {
         static void NameOrderEvents(this IEventMetadataMapper mapper) => mapper
-            .Add<IOrderEvent.OrderItemAdded>("OrderItemAdded")
-            .Add<IOrderEvent.OrderItemRemoved>("OrderItemRemoved");
+            .Add<IOrderEvents.OrderItemAdded>("OrderItemAdded")
+            .Add<IOrderEvents.OrderItemRemoved>("OrderItemRemoved");
     }
 }

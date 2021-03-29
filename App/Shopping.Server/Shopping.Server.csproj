@@ -26,6 +26,7 @@
     <ProjectReference Include="..\..\Domain.Foundation\Domain.Foundation.EventStore\Domain.Foundation.EventStore.csproj" />
     <ProjectReference Include="..\..\Domain.Foundation\Domain.Foundation\Domain.Foundation.csproj" />
     <ProjectReference Include="..\..\Sales\Shopping.Sales.Api\Shopping.Sales.Api.csproj" />
+    <ProjectReference Include="..\..\Sales\Shopping.Sales.Infrastructure\Shopping.Sales.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Sales\Shopping.Sales.Storage.EntityFramework\Shopping.Sales.Storage.EntityFramework.csproj" />
     <ProjectReference Include="..\..\Sales\Shopping.Sales\Shopping.Sales.csproj" />
   </ItemGroup>

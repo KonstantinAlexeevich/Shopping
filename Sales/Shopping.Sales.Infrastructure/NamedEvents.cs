@@ -1,8 +1,6 @@
 ﻿using Domain.Foundation.Events;
-using Shopping.Sales.Orders;
 
-// ReSharper disable once CheckNamespace
-namespace Shopping.Sales
+namespace Shopping.Sales.Infrastructure
 {
     public static partial class NamedEvents
     {

@@ -4,4 +4,9 @@
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\Domain.Foundation\Domain.Foundation.EventStore\Domain.Foundation.EventStore.csproj" />
+      <ProjectReference Include="..\Shopping.Sales\Shopping.Sales.csproj" />
+    </ItemGroup>
+
 </Project>

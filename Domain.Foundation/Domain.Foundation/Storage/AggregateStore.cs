@@ -6,9 +6,7 @@ namespace Domain.Foundation.Storage
 {
     public abstract class AggregateStore<TAggregate, TIdentity, TSnapshot> 
         : IAggregateStore<TAggregate, TIdentity> 
-        where TAggregate : IAggregate<TIdentity>, 
-        IRestoredFrom<TSnapshot>,
-        IStoredTo<TSnapshot>
+        where TAggregate : IAggregate<TIdentity>, IRestoredFrom<TSnapshot>, IStoredTo<TSnapshot>
     {
         private readonly IAggregateConstructor _aggregateConstructor;
 

@@ -2,7 +2,7 @@
 
 namespace Domain.Foundation
 {
-    public class AutoApplyInterfaceAttribute: Attribute
+    public class DefaultImplementationAttribute: Attribute
     {
     }
 }

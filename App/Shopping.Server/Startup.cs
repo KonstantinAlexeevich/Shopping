@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Shopping.Sales;
+using Shopping.Sales.Infrastructure;
 using Shopping.Sales.Orders;
 using Shopping.Server.Areas.Identity;
 using Shopping.Server.Data;
@@ -52,8 +53,11 @@ namespace Shopping.Server
             );
 
             services.AddDomainFoundation(x => x.AddAssemblies(typeof(Order).Assembly));
-            services.AddEventNames(x => { x.NameSalesEvents(); });
-            services.StoreAggregate<Order, string, IOrderEvent>();
+            services.AddEventNames(x =>
+            {
+                x.NameSalesEvents();
+            });
+            services.AddSalesAggregateStores();
         }
 
         static EventStoreClient ConfigureEventStore(string connectionString, ILoggerFactory loggerFactory)
